@@ -1,5 +1,17 @@
-def hello(environ, start_response):
-    status = '200 OK'
-    response_headers = [('Content-type','text/plain')]
-    start_response(status, response_headers)
-    return ["\r\n".join(environ['QUERY_STRING'].split("&"))]
+from cgi import parse_qs
+
+def application(environ, start_response):
+
+  query = parse_qs(environ['QUERY_STRING'], keep_blank_values=True)
+  body = []
+  for key, values in query.items():
+    for item in values:
+      body.append(key + "=" + item + "\r\n")
+   
+  status = '200 OK'
+  headers = [
+   ('Content-Type', 'text/plain')
+  ]
+  
+  start_response(status, headers)
+  return body
