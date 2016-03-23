@@ -1,0 +1,18 @@
+<!-- qa/questions.html -->
+<html>
+<head>
+</head>
+<body>
+
+  <h1>Question</h1>
+  <h3>Title: {{ question.title }}</h3>
+  <h3>Text:  {{ question.text }}</h3>
+  <hr>
+ 
+  <h3>Answers:</h3>
+  {% for answer in answers %}
+    <p>{{ answer.text }}</p>
+  {% endfor %}
+
+</body>
+</html> 

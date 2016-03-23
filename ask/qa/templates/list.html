@@ -1,0 +1,27 @@
+<!-- qa/questions.html -->
+<html>
+<head>
+</head>
+<body>
+
+  <h1>List of questions:</h1>
+  {% for question in questions %}
+    <p>{{question.id}}: {{ question.title }}
+      <a href="{{ paginator.baseurl }}/question/{{ question.id }}/">
+        {{ paginator.baseurl }}/question/{{ question.id }}/
+      </a>
+    </p>
+  {% endfor %}
+
+  <nav><ul>
+  {% for page_number in paginator.page_range %}
+    <li>
+      <a href="{{ paginator.baseurl }}?page={{ page_number }}">
+        {{ page_number }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul></nav>
+
+</body>
+</html> 
