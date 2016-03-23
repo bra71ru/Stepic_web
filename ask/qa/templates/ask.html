@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+
+  <h1>Ask your question</h1>
+  <form method="post" action="/ask/">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+
+</body>
+</html> 

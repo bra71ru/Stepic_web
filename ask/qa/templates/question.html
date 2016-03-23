@@ -7,12 +7,23 @@
   <h1>Question</h1>
   <h3>Title: {{ question.title }}</h3>
   <h3>Text:  {{ question.text }}</h3>
+  <h3>Author:  {{ question.author }}</h3>
   <hr>
- 
+
   <h3>Answers:</h3>
+  <ul>
   {% for answer in answers %}
-    <p>{{ answer.text }}</p>
+    <li>{{ answer.text }}</li>
   {% endfor %}
+  </ul>
+  <hr>
+
+  <h3>Your answer:</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
 
 </body>
-</html> 
+</html>

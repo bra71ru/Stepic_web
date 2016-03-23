@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+
+  <h1>New account</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+
+</body>
+</html> 
